@@ -33,7 +33,7 @@ sudo apt-get install -y docker-engine
 sudo service docker start
 
 sudo groupadd docker
-sudo usermod -aG docker ubuntu
+sudo usermod -aG docker $1 
 
 echo "~~~~~~~~~~~~  SUCCESS! ~~~~~~~~~"
 echo "You have successfully installed docker using this script"
