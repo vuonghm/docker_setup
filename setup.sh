@@ -1,4 +1,15 @@
 #!/bin/sh
+#Check that the user has input a non-root user
+if [ -z "$1" ]; then
+	echo "You must specify a non-root user.  This user will run docker commands without having to run as root";
+	exit;
+elif [ "$1" == "root" ]; then
+	echo "You must specify a non-root user.  Please try again";
+	exit;
+else
+	echo "$1 will be able to run docker commands as root"
+fi
+
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
